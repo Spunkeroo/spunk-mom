@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spunk.Mom — For Moms Who Hustle</title>
+<meta name="description" content="Side hustles, money-saving hacks, and real product picks for busy moms. Earn from home, save money, and build a life you love.">
+<meta name="keywords" content="mom side hustles, work from home mom, make money as a mom, best products for moms, parenting hacks, mom life, mompreneur">
+<meta property="og:title" content="Spunk.Mom — For Moms Who Hustle">
+<meta property="og:description" content="Side hustles, money-saving hacks, and real product picks for busy moms.">
+<meta property="og:url" content="https://spunk.mom">
+<link rel="canonical" href="https://spunk.mom">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{--bg:#0a0a0f;--card:#1a1a2e;--border:#2a2a4e;--purple:#bf5af2;--cyan:#00f5d4;--gold:#ffd60a;--green:#32d74b;--pink:#ff6eb4;--rose:#ff4d8f;--text:#e8e8f0;--muted:#888}
+  body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;min-height:100vh;overflow-x:hidden}
+  a{color:inherit;text-decoration:none}
+  .hero{text-align:center;padding:60px 20px 40px;background:radial-gradient(ellipse at center top,rgba(255,77,143,.12) 0%,transparent 70%)}
+  .hero-badge{display:inline-block;background:rgba(255,77,143,.2);border:1px solid rgba(255,77,143,.4);border-radius:50px;padding:6px 18px;font-size:.8rem;color:var(--rose);margin-bottom:20px;letter-spacing:.05em}
+  .hero h1{font-size:clamp(2rem,6vw,3.5rem);font-weight:800;background:linear-gradient(135deg,var(--rose),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:12px}
+  .hero p{color:var(--muted);font-size:1.1rem;max-width:540px;margin:0 auto 30px;line-height:1.6}
+  .stat-row{display:flex;justify-content:center;gap:40px;flex-wrap:wrap}
+  .stat{text-align:center}
+  .stat-num{font-size:1.8rem;font-weight:800;color:var(--cyan)}
+  .stat-label{font-size:.75rem;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
+  .container{max-width:1100px;margin:0 auto;padding:0 20px}
+  section{padding:50px 0}
+  .section-header{display:flex;align-items:center;gap:12px;margin-bottom:30px}
+  .section-icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0}
+  .section-header h2{font-size:1.5rem;font-weight:700}
+  .section-header p{font-size:.9rem;color:var(--muted);margin-top:2px}
+  /* Hustle Cards */
+  .hustle-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px}
+  .hustle-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:22px;position:relative;overflow:hidden;transition:all .3s;display:flex;flex-direction:column}
+  .hustle-card:hover{border-color:var(--rose);transform:translateY(-3px);box-shadow:0 8px 30px rgba(255,77,143,.15)}
+  .hustle-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--rose),var(--purple))}
+  .hustle-rank{position:absolute;top:16px;right:16px;width:30px;height:30px;border-radius:50%;background:rgba(255,214,10,.15);border:1px solid rgba(255,214,10,.3);display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:800;color:var(--gold)}
+  .hustle-emoji{font-size:2.2rem;margin-bottom:12px}
+  .hustle-title{font-weight:700;font-size:1.05rem;margin-bottom:6px}
+  .hustle-desc{font-size:.82rem;color:var(--muted);line-height:1.55;flex:1;margin-bottom:12px}
+  .hustle-earn{font-size:.82rem;color:var(--green);font-weight:600;margin-bottom:12px}
+  .hustle-tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px}
+  .hustle-tag{padding:3px 10px;border-radius:20px;font-size:.68rem;font-weight:600}
+  .tag-flexible{background:rgba(0,245,212,.15);color:var(--cyan);border:1px solid rgba(0,245,212,.3)}
+  .tag-free{background:rgba(50,215,75,.15);color:var(--green);border:1px solid rgba(50,215,75,.3)}
+  .tag-remote{background:rgba(191,90,242,.15);color:var(--purple);border:1px solid rgba(191,90,242,.3)}
+  .tag-fast{background:rgba(255,214,10,.15);color:var(--gold);border:1px solid rgba(255,214,10,.3)}
+  .hustle-cta{display:block;text-align:center;padding:10px;background:linear-gradient(135deg,rgba(255,77,143,.25),rgba(191,90,242,.25));border:1px solid rgba(255,77,143,.4);border-radius:10px;font-size:.85rem;font-weight:700;transition:all .2s}
+  .hustle-cta:hover{background:linear-gradient(135deg,rgba(255,77,143,.4),rgba(191,90,242,.4))}
+  /* Mom Picks */
+  .picks-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px}
+  .pick-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:10px;transition:all .3s}
+  .pick-card:hover{border-color:var(--pink);transform:translateY(-2px)}
+  .pick-emoji{font-size:2rem}
+  .pick-name{font-weight:700;font-size:.95rem}
+  .pick-desc{font-size:.78rem;color:var(--muted);line-height:1.5;flex:1}
+  .pick-price{font-weight:700;color:var(--green);font-size:.9rem}
+  .amazon-btn{display:block;text-align:center;padding:8px;background:rgba(255,153,0,.15);border:1px solid rgba(255,153,0,.4);border-radius:8px;font-size:.78rem;font-weight:700;color:#ff9900;transition:all .2s}
+  .amazon-btn:hover{background:rgba(255,153,0,.3)}
+  /* Savings Tips */
+  .savings-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}
+  .saving-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px;transition:all .2s}
+  .saving-card:hover{border-color:var(--gold)}
+  .saving-emoji{font-size:1.8rem;margin-bottom:10px}
+  .saving-title{font-weight:700;margin-bottom:8px;font-size:.95rem}
+  .saving-list{list-style:none;display:flex;flex-direction:column;gap:6px}
+  .saving-list li{font-size:.8rem;color:var(--muted);padding-left:16px;position:relative;line-height:1.4}
+  .saving-list li::before{content:'→';position:absolute;left:0;color:var(--cyan)}
+  /* Empire Grid */
+  .empire-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px}
+  .empire-site{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px;text-align:center;transition:all .2s}
+  .empire-site:hover{border-color:var(--purple);background:rgba(191,90,242,.08)}
+  .empire-site .e-name{font-weight:700;font-size:.9rem;margin-bottom:4px;color:var(--cyan)}
+  .empire-site .e-desc{font-size:.72rem;color:var(--muted)}
+  /* Support */
+  .tip-section{background:var(--card);border:1px solid rgba(255,77,143,.3);border-radius:20px;padding:30px;text-align:center;margin-top:30px}
+  .tip-btn{display:inline-block;padding:14px 36px;background:linear-gradient(135deg,var(--rose),var(--purple));border-radius:50px;font-weight:700;font-size:1rem;cursor:pointer;border:none;color:#fff;transition:all .3s}
+  .tip-btn:hover{transform:scale(1.05);box-shadow:0 0 20px rgba(255,77,143,.5)}
+  footer{background:var(--card);border-top:1px solid var(--border);text-align:center;padding:30px 20px}
+  footer a{color:var(--cyan);margin:0 8px}
+  footer p{color:var(--muted);font-size:.8rem;margin-top:10px}
+  #vtr-badge{position:fixed;bottom:16px;right:16px;background:rgba(10,10,15,.9);backdrop-filter:blur(10px);border:1px solid var(--border);border-radius:50px;padding:8px 14px;display:flex;align-items:center;gap:8px;font-size:.8rem;z-index:999;box-shadow:0 4px 20px rgba(0,0,0,.4)}
+  #vtr-dot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 6px var(--green);animation:pulse 2s infinite}
+  @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.85)}}
+  .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.8);z-index:9999;align-items:center;justify-content:center}
+  .modal-overlay.open{display:flex}
+  .modal-box{background:#1a1a2e;border:1px solid rgba(255,77,143,.4);border-radius:20px;padding:30px;max-width:380px;width:90%;text-align:center}
+  .btc-addr{background:rgba(0,0,0,.4);border:1px solid var(--border);border-radius:10px;padding:12px;font-size:.7rem;word-break:break-all;color:var(--cyan);margin:14px 0;cursor:pointer;font-family:monospace}
+  .modal-close{background:rgba(255,255,255,.1);border:none;color:var(--text);padding:10px 24px;border-radius:50px;cursor:pointer;font-size:.9rem}
+  @media(max-width:600px){.stat-row{gap:20px}.hero{padding:40px 16px 30px}}
+</style>
+</head>
+<body>
+
+<div id="vtr-badge"><div id="vtr-dot"></div><span id="vtr-count">—</span> online</div>
+
+<div class="modal-overlay" id="tipModal">
+  <div class="modal-box">
+    <div style="font-size:2rem;margin-bottom:10px">💖</div>
+    <h3>Support Spunk.Mom</h3>
+    <p style="color:var(--muted);font-size:.85rem">Send BTC to keep this mom resource free forever</p>
+    <div class="btc-addr" id="btcAddr" onclick="copyBTC()">bc1p06ewdjqrf8lj5lckxgnx3062lgrhzchayv89fgvfw6tu4gk8s78ssshelk</div>
+    <p style="font-size:.75rem;color:var(--muted);margin-bottom:16px">Tap to copy • Every sat is love 💖</p>
+    <button class="modal-close" onclick="closeTip()">Close</button>
+  </div>
+</div>
+
+<section class="hero">
+  <div class="hero-badge">💖 FOR MOMS WHO HUSTLE</div>
+  <h1>Spunk.Mom</h1>
+  <p>You're already doing the hardest job in the world. Here's how to make it pay too — side hustles, smart saves, and hand-picked gear for moms who don't mess around.</p>
+  <div class="stat-row">
+    <div class="stat"><div class="stat-num">12+</div><div class="stat-label">Side Hustles</div></div>
+    <div class="stat"><div class="stat-num">$0</div><div class="stat-label">To Get Started</div></div>
+    <div class="stat"><div class="stat-num">∞</div><div class="stat-label">Mom Power</div></div>
+  </div>
+</section>
+
+<div class="container">
+
+  <!-- Side Hustles -->
+  <section>
+    <div class="section-header">
+      <div class="section-icon" style="background:rgba(255,77,143,.15);color:var(--rose)">💰</div>
+      <div>
+        <h2>Best Side Hustles for Moms</h2>
+        <p>Flexible, remote, real income — ranked by how mom-friendly they actually are</p>
+      </div>
+    </div>
+    <div class="hustle-grid">
+      <div class="hustle-card">
+        <div class="hustle-rank">1</div>
+        <div class="hustle-emoji">✍️</div>
+        <div class="hustle-title">Freelance on Fiverr</div>
+        <div class="hustle-desc">Write, design, edit, transcribe, do social media — whatever your skills are, someone will pay for them. Set your own hours, work during naps.</div>
+        <div class="hustle-earn">💸 $5 — $500+ per gig, your schedule</div>
+        <div class="hustle-tags"><span class="hustle-tag tag-flexible">Flexible</span><span class="hustle-tag tag-free">Free to Join</span><span class="hustle-tag tag-remote">100% Remote</span></div>
+        <a href="https://www.fiverr.com/s/spunkart" target="_blank" rel="noopener" class="hustle-cta">Start on Fiverr →</a>
+      </div>
+      <div class="hustle-card">
+        <div class="hustle-rank">2</div>
+        <div class="hustle-emoji">🤖</div>
+        <div class="hustle-title">Sell Automations (Make.com)</div>
+        <div class="hustle-desc">Build simple workflow automations and sell them to businesses. No-code, huge demand from small businesses who'll pay well for time-saving bots.</div>
+        <div class="hustle-earn">💸 $50 — $2,000+ per automation</div>
+        <div class="hustle-tags"><span class="hustle-tag tag-free">Free Plan</span><span class="hustle-tag tag-remote">Remote</span><span class="hustle-tag tag-fast">High Demand</span></div>
+        <a href="https://www.make.com/en/register?pc=spunk" target="_blank" rel="noopener" class="hustle-cta">Learn Make.com →</a>
+      </div>
+      <div class="hustle-card">
+        <div class="hustle-rank">3</div>
+        <div class="hustle-emoji">🎨</div>
+        <div class="hustle-title">Sell AI Art & Designs</div>
+        <div class="hustle-desc">Use Leonardo AI (free credits) to generate art, printables, invitations, logos. Sell on Fiverr, Etsy, or to local businesses. Zero design experience needed.</div>
+        <div class="hustle-earn">💸 $10 — $200+ per design set</div>
+        <div class="hustle-tags"><span class="hustle-tag tag-flexible">Flexible Hours</span><span class="hustle-tag tag-free">Free Credits</span></div>
+        <a href="https://app.leonardo.ai/?via=spunkart" target="_blank" rel="noopener" class="hustle-cta">Get Free Credits →</a>
+      </div>
+      <div class="hustle-card">
+        <div class="hustle-rank">4</div>
+        <div class="hustle-emoji">🔮</div>
+        <div class="hustle-title">Predict & Win (Kalshi)</div>
+        <div class="hustle-desc">Bet on real world events — sports, politics, weather, economics. Your knowledge of the world = real money. Legal prediction markets, cash out anytime.</div>
+        <div class="hustle-earn">💸 Start free, no limit on winnings</div>
+        <div class="hustle-tags"><span class="hustle-tag tag-fast">Start Immediately</span><span class="hustle-tag tag-remote">Phone-Friendly</span></div>
+        <a href="https://kalshi.com/sign-up/?referral=SPUNKART&utm_source=referral&utm_medium=spunkart" target="_blank" rel="noopener" class="hustle-cta">Start Predicting →</a>
+      </div>
+      <div class="hustle-card">
+        <div class="hustle-rank">5</div>
+        <div class="hustle-emoji">📸</div>
+        <div class="hustle-title">Sell Stock Photos of Your Life</div>
+        <div class="hustle-desc">Authentic mom-life photos sell extremely well on stock sites. Real family moments, cooking, parenting, daily life. No professional gear needed — phone is fine.</div>
+        <div class="hustle-earn">💸 $0.25 — $120+ per download (passive)</div>
+        <div class="hustle-tags"><span class="hustle-tag tag-flexible">Passive Income</span><span class="hustle-tag tag-free">Free to Upload</span></div>
+        <a href="https://www.amazon.com/s?k=ring+light+camera+phone&tag=spunk01-20" target="_blank" rel="noopener" class="hustle-cta">Upgrade Your Setup →</a>
+      </div>
+      <div class="hustle-card">
+        <div class="hustle-rank">6</div>
+        <div class="hustle-emoji">📈</div>
+        <div class="hustle-title">Crypto Earning (Coinbase)</div>
+        <div class="hustle-desc">Get $10 free Bitcoin when you sign up and buy $100. Earn rewards through staking. Long-term crypto savings outpace traditional savings accounts dramatically.</div>
+        <div class="hustle-earn">💸 $10 FREE + up to 8% staking rewards</div>
+        <div class="hustle-tags"><span class="hustle-tag tag-free">$10 Free BTC</span><span class="hustle-tag tag-fast">Instant</span></div>
+        <a href="https://www.coinbase.com/join/YAGES3X" target="_blank" rel="noopener" class="hustle-cta">Claim $10 Free →</a>
+      </div>
+      <div class="hustle-card">
+        <div class="hustle-rank">7</div>
+        <div class="hustle-emoji">🛡️</div>
+        <div class="hustle-title">Refer NordVPN & Earn</div>
+        <div class="hustle-desc">NordVPN pays affiliates for every referral. Share your link on mom groups, parenting forums, social media. Essential privacy tool that sells itself.</div>
+        <div class="hustle-earn">💸 Up to $100+ per referral</div>
+        <div class="hustle-tags"><span class="hustle-tag tag-remote">Share Anywhere</span><span class="hustle-tag tag-flexible">Passive</span></div>
+        <a href="https://nordvpn.com/?utm_medium=affiliate&utm_term=spunkart" target="_blank" rel="noopener" class="hustle-cta">Get NordVPN →</a>
+      </div>
+      <div class="hustle-card">
+        <div class="hustle-rank">8</div>
+        <div class="hustle-emoji">🎰</div>
+        <div class="hustle-title">Win Free Crypto (Spunk.Bet)</div>
+        <div class="hustle-desc">Play free casino games and win SPUNK runes. No deposit, no fees, provably fair. Claim daily faucet, play slots, poker, dice. Pure fun with real crypto rewards.</div>
+        <div class="hustle-earn">💸 10,000 SPUNK free every 24h</div>
+        <div class="hustle-tags"><span class="hustle-tag tag-free">100% Free</span><span class="hustle-tag tag-fast">Instant Rewards</span></div>
+        <a href="https://spunk.bet" target="_blank" rel="noopener" class="hustle-cta">Play Free Now →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mom-Approved Products -->
+  <section>
+    <div class="section-header">
+      <div class="section-icon" style="background:rgba(255,153,0,.15);color:#ff9900">🛍️</div>
+      <div>
+        <h2>Mom-Approved Products</h2>
+        <p>Things that actually make mom life easier — Amazon affiliate links fund this resource</p>
+      </div>
+    </div>
+    <div class="picks-grid">
+      <div class="pick-card">
+        <div class="pick-emoji">🧴</div>
+        <div class="pick-name">Instant Pot Duo 7-in-1</div>
+        <div class="pick-desc">Cook dinner in 30 min. Pressure cooker, slow cooker, rice cooker, steamer. Game changer for busy moms.</div>
+        <div class="pick-price">~$99</div>
+        <a href="https://www.amazon.com/s?k=instant+pot+duo+7+in+1&tag=spunk01-20" target="_blank" rel="noopener" class="amazon-btn">View on Amazon →</a>
+      </div>
+      <div class="pick-card">
+        <div class="pick-emoji">🎒</div>
+        <div class="pick-name">Large Tote Mom Bag</div>
+        <div class="pick-desc">Fits everything — laptop, kids' snacks, diapers, your whole life. Waterproof, stylish, multiple compartments.</div>
+        <div class="pick-price">~$39</div>
+        <a href="https://www.amazon.com/s?k=large+waterproof+tote+bag+women+mom&tag=spunk01-20" target="_blank" rel="noopener" class="amazon-btn">View on Amazon →</a>
+      </div>
+      <div class="pick-card">
+        <div class="pick-emoji">💊</div>
+        <div class="pick-name">Olly Mom Multi + Energy</div>
+        <div class="pick-desc">Prenatal/postnatal vitamins with B12 for energy, omega-3, folate, iron. Gummy form — actually enjoyable.</div>
+        <div class="pick-price">~$19</div>
+        <a href="https://www.amazon.com/s?k=olly+prenatal+multivitamin+gummy+women&tag=spunk01-20" target="_blank" rel="noopener" class="amazon-btn">View on Amazon →</a>
+      </div>
+      <div class="pick-card">
+        <div class="pick-emoji">☕</div>
+        <div class="pick-name">Ninja Dual Brew Coffee Maker</div>
+        <div class="pick-desc">Full pot AND single cups. Makes hot AND iced coffee. Pod compatible. No more cold coffee mornings.</div>
+        <div class="pick-price">~$159</div>
+        <a href="https://www.amazon.com/s?k=ninja+dual+brew+coffee+maker&tag=spunk01-20" target="_blank" rel="noopener" class="amazon-btn">View on Amazon →</a>
+      </div>
+      <div class="pick-card">
+        <div class="pick-emoji">🧹</div>
+        <div class="pick-name">Roomba Robot Vacuum</div>
+        <div class="pick-desc">Clean floors without lifting a finger. Schedules automatically, handles pet hair and crumbs. More time for what matters.</div>
+        <div class="pick-price">~$249</div>
+        <a href="https://www.amazon.com/s?k=roomba+robot+vacuum+irobot&tag=spunk01-20" target="_blank" rel="noopener" class="amazon-btn">View on Amazon →</a>
+      </div>
+      <div class="pick-card">
+        <div class="pick-emoji">🎧</div>
+        <div class="pick-name">Noise Cancelling Headphones</div>
+        <div class="pick-desc">The sanity-saver for work-from-home moms. Block out everything, enter focus mode, get things done.</div>
+        <div class="pick-price">~$179</div>
+        <a href="https://www.amazon.com/s?k=anker+soundcore+q45+noise+cancelling+headphones&tag=spunk01-20" target="_blank" rel="noopener" class="amazon-btn">View on Amazon →</a>
+      </div>
+      <div class="pick-card">
+        <div class="pick-emoji">📓</div>
+        <div class="pick-name">Passion Planner Weekly</div>
+        <div class="pick-desc">Goal-setting + weekly planning + gratitude journal in one. Cult favorite for moms who hustle. Stay organized, stay sane.</div>
+        <div class="pick-price">~$29</div>
+        <a href="https://www.amazon.com/s?k=passion+planner+weekly+undated&tag=spunk01-20" target="_blank" rel="noopener" class="amazon-btn">View on Amazon →</a>
+      </div>
+      <div class="pick-card">
+        <div class="pick-emoji">💪</div>
+        <div class="pick-name">Resistance Band Set (11pc)</div>
+        <div class="pick-desc">Full home workout kit for busy moms. No gym required. Works for all fitness levels, lightweight, store anywhere.</div>
+        <div class="pick-price">~$24</div>
+        <a href="https://www.amazon.com/s?k=resistance+band+set+women+home+workout&tag=spunk01-20" target="_blank" rel="noopener" class="amazon-btn">View on Amazon →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Money Saving Tips -->
+  <section>
+    <div class="section-header">
+      <div class="section-icon" style="background:rgba(255,214,10,.15);color:var(--gold)">💡</div>
+      <div>
+        <h2>Smart Money Moves for Moms</h2>
+        <p>Real tips to save more, earn more, and stretch every dollar</p>
+      </div>
+    </div>
+    <div class="savings-grid">
+      <div class="saving-card">
+        <div class="saving-emoji">🛒</div>
+        <div class="saving-title">Amazon Hacks</div>
+        <ul class="saving-list">
+          <li>Subscribe & Save 15% on diapers, wipes, formula</li>
+          <li>Set up a Baby Registry for the completion discount</li>
+          <li>Amazon Warehouse for open-box deals up to 50% off</li>
+          <li>Use Amazon Business account for tax-exempt purchases</li>
+          <li>Check Lightning Deals daily — first hour is best</li>
+        </ul>
+      </div>
+      <div class="saving-card">
+        <div class="saving-emoji">💰</div>
+        <div class="saving-title">Crypto & Finance</div>
+        <ul class="saving-list">
+          <li>Get $10 free BTC on Coinbase — just buy $100</li>
+          <li>Stake crypto for 4–8% APY (beats savings accounts)</li>
+          <li>Earn SPUNK rune daily on Spunk.Bet — free gaming</li>
+          <li>Predict markets on Kalshi using real-world knowledge</li>
+          <li>Buy Ledger hardware wallet to protect your savings</li>
+        </ul>
+      </div>
+      <div class="saving-card">
+        <div class="saving-emoji">🔐</div>
+        <div class="saving-title">Privacy & Security</div>
+        <ul class="saving-list">
+          <li>Use NordVPN on public WiFi — protects banking/passwords</li>
+          <li>Enable 2FA on every account (especially banking)</li>
+          <li>Use a password manager — LastPass or Bitwarden (free)</li>
+          <li>Freeze credit for kids at all 3 bureaus (free, protects them)</li>
+          <li>Never share SSN on parenting apps or forums</li>
+        </ul>
+      </div>
+      <div class="saving-card">
+        <div class="saving-emoji">🤖</div>
+        <div class="saving-title">Automate Your Life</div>
+        <ul class="saving-list">
+          <li>Make.com automates social posting, email, invoices free</li>
+          <li>Schedule grocery pickup to avoid impulse buys in-store</li>
+          <li>Auto-pay all bills — eliminates late fees forever</li>
+          <li>Canva templates for all your content creation needs</li>
+          <li>Use Leonardo AI to make content in minutes</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- SpunkArt Empire -->
+  <section>
+    <div class="section-header">
+      <div class="section-icon" style="background:rgba(191,90,242,.15);color:var(--purple)">👑</div>
+      <div>
+        <h2>The SpunkArt Empire</h2>
+        <p>Every free resource in our network — explore them all</p>
+      </div>
+    </div>
+    <div class="empire-grid">
+      <a href="https://spunk.bet" target="_blank" rel="noopener" class="empire-site"><div class="e-name">Spunk.Bet</div><div class="e-desc">Free casino</div></a>
+      <a href="https://spunkart.com" target="_blank" rel="noopener" class="empire-site"><div class="e-name">SpunkArt.com</div><div class="e-desc">Main site</div></a>
+      <a href="https://pfp.best" target="_blank" rel="noopener" class="empire-site"><div class="e-name">PFP.Best</div><div class="e-desc">NFT avatars</div></a>
+      <a href="https://spunk.baby" target="_blank" rel="noopener" class="empire-site"><div class="e-name">Spunk.Baby</div><div class="e-desc">Baby gear</div></a>
+      <a href="https://spunk.casa" target="_blank" rel="noopener" class="empire-site"><div class="e-name">Spunk.Casa</div><div class="e-desc">Home office</div></a>
+      <a href="https://spunk.wiki" target="_blank" rel="noopener" class="empire-site"><div class="e-name">Spunk.Wiki</div><div class="e-desc">Crypto wiki</div></a>
+      <a href="https://spunk.casino" target="_blank" rel="noopener" class="empire-site"><div class="e-name">Spunk.Casino</div><div class="e-desc">Casino guide</div></a>
+      <a href="https://spunk.surf" target="_blank" rel="noopener" class="empire-site"><div class="e-name">Spunk.Surf</div><div class="e-desc">Discovery</div></a>
+      <a href="https://spunk.my" target="_blank" rel="noopener" class="empire-site"><div class="e-name">Spunk.My</div><div class="e-desc">Brand hub</div></a>
+      <a href="https://spunk.best" target="_blank" rel="noopener" class="empire-site"><div class="e-name">Spunk.Best</div><div class="e-desc">Best picks</div></a>
+      <a href="https://spunk.work" target="_blank" rel="noopener" class="empire-site"><div class="e-name">Spunk.Work</div><div class="e-desc">Business tools</div></a>
+      <a href="https://i13.fun" target="_blank" rel="noopener" class="empire-site"><div class="e-name">i13.fun</div><div class="e-desc">Link hub</div></a>
+    </div>
+  </section>
+
+  <div class="tip-section">
+    <div style="font-size:2.5rem;margin-bottom:10px">💖</div>
+    <h2 style="margin-bottom:8px">Support Spunk.Mom</h2>
+    <p style="color:var(--muted);max-width:420px;margin:0 auto 20px;font-size:.9rem">No ads, no subscriptions, no BS. Affiliate links keep this running. If this helped you, a tip goes a long way.</p>
+    <button class="tip-btn" onclick="document.getElementById('tipModal').classList.add('open')">💖 Send a Tip</button>
+  </div>
+
+</div>
+
+<footer>
+  <div>
+    <a href="https://spunkart.com" target="_blank">SpunkArt.com</a>
+    <a href="https://x.com/SpunkArt13" target="_blank">@SpunkArt13</a>
+    <a href="https://spunk.baby" target="_blank">Spunk.Baby</a>
+    <a href="https://spunk.bet" target="_blank">Spunk.Bet</a>
+  </div>
+  <p style="margin-top:12px">© 2026 SpunkArt Empire • Amazon Associate spunk01-20 • Affiliate links fund this free resource</p>
+</footer>
+
+<script>
+(function(){
+  if(window._vtrInit)return;window._vtrInit=true;
+  var DB='https://predict-network-ec767-default-rtdb.firebaseio.com';
+  var site=(location.hostname||'local').replace(/\./g,'_').replace(/[#$\[\]]/g,'_');
+  var sid='s'+Math.random().toString(36).slice(2)+Date.now().toString(36);
+  function ping(){fetch(DB+'/visitors/'+site+'/'+sid+'.json',{method:'PUT',body:JSON.stringify({ts:Date.now()})}).catch(function(){});}
+  function refresh(){fetch(DB+'/visitors/'+site+'.json?shallow=true').then(function(r){return r.json();}).then(function(d){var c=d?Object.keys(d).length:1;document.getElementById('vtr-count').textContent=Math.max(1,c);}).catch(function(){});}
+  function daily(){fetch(DB+'/hits/'+site+'/'+new Date().toISOString().slice(0,10)+'.json',{method:'POST',body:JSON.stringify({t:Date.now()})}).catch(function(){});}
+  ping();refresh();daily();setInterval(function(){ping();refresh();},10000);
+})();
+function closeTip(){document.getElementById('tipModal').classList.remove('open');}
+function copyBTC(){var a=document.getElementById('btcAddr').textContent.trim();navigator.clipboard.writeText(a).catch(function(){});document.getElementById('btcAddr').textContent='✓ Copied!';setTimeout(function(){document.getElementById('btcAddr').textContent=a;},2000);}
+document.getElementById('tipModal').addEventListener('click',function(e){if(e.target===this)closeTip();});
+</script>
+</body>
+</html>
