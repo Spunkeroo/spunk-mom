@@ -338,6 +338,36 @@
     </div>
   </section>
 
+  <!-- MASTERCLASS CALLOUT -->
+  <section>
+    <div style="background:linear-gradient(135deg,rgba(254,228,64,.08),rgba(191,90,242,.06));border:2px solid rgba(254,228,64,.3);border-radius:16px;padding:28px;display:flex;gap:20px;align-items:center;flex-wrap:wrap;">
+      <div style="font-size:3rem;">🎓</div>
+      <div style="flex:1">
+        <div style="font-size:1.2rem;font-weight:800;margin-bottom:4px;">MasterClass for Moms</div>
+        <p style="color:var(--muted);font-size:.88rem;">Learn cooking, wellness, writing &amp; more from world-class instructors. Gordon Ramsay, Serena Williams, Shonda Rhimes and more.</p>
+      </div>
+      <a href="https://www.masterclass.com" target="_blank" rel="noopener sponsored" style="background:linear-gradient(135deg,#fee440,#f59e0b);color:#000;font-weight:800;padding:12px 22px;border-radius:20px;font-size:.9rem;white-space:nowrap;text-decoration:none;">Try Free →</a>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER + VIRAL SHARE -->
+  <section>
+    <div style="background:linear-gradient(135deg,rgba(255,77,143,.08),rgba(191,90,242,.06));border:1px solid rgba(255,77,143,.25);border-radius:16px;padding:32px;text-align:center;">
+      <div style="font-size:2rem;margin-bottom:8px;">💌</div>
+      <h2 style="font-size:1.4rem;font-weight:800;margin-bottom:6px;">Join 5,000+ Moms</h2>
+      <p style="color:var(--muted);font-size:.9rem;margin-bottom:16px;">Weekly money tips, Amazon deals &amp; mom wins — free forever.</p>
+      <div style="display:flex;gap:8px;max-width:400px;margin:0 auto 12px;flex-wrap:wrap;">
+        <input id="mom-nl-email" type="email" placeholder="your@email.com" style="flex:1;min-width:180px;background:var(--card);border:1px solid var(--border);color:var(--text);padding:10px 14px;border-radius:10px;font-size:.88rem;font-family:inherit;">
+        <button onclick="subscribeMomNL()" style="background:linear-gradient(135deg,var(--rose),var(--purple));color:#fff;border:none;padding:10px 20px;border-radius:10px;font-weight:800;font-size:.88rem;cursor:pointer;white-space:nowrap;">Join Free</button>
+      </div>
+      <div id="mom-nl-msg" style="font-size:.82rem;color:var(--rose);min-height:18px;font-weight:700;"></div>
+      <div style="margin-top:20px;padding-top:16px;border-top:1px solid var(--border);">
+        <p style="color:var(--muted);font-size:.85rem;margin-bottom:8px;">Share with your mom friends →</p>
+        <button onclick="shareMomOnX()" style="background:#000;color:#fff;border:1px solid #333;padding:9px 20px;border-radius:20px;font-weight:700;font-size:.85rem;cursor:pointer;">𝕏 Share on X</button>
+      </div>
+    </div>
+  </section>
+
   <!-- SpunkArt Empire -->
   <section>
     <div class="section-header">
@@ -383,6 +413,21 @@
 </footer>
 
 <script>
+window.subscribeMomNL=function(){
+  var email=document.getElementById('mom-nl-email').value.trim();
+  var msg=document.getElementById('mom-nl-msg');
+  if(!email||!email.includes('@')){if(msg)msg.textContent='Please enter a valid email.';return;}
+  var fp=localStorage.getItem('mom_fp')||('fp_'+Math.random().toString(36).slice(2));
+  localStorage.setItem('mom_fp',fp);
+  if(localStorage.getItem('mom_nl_sub')){if(msg)msg.textContent='You\'re already subscribed! 🎉';return;}
+  fetch('https://predict-network-ec767-default-rtdb.firebaseio.com/spunk_mom_newsletter/'+fp+'.json',{method:'PUT',body:JSON.stringify({email:email,t:Date.now()}),headers:{'Content-Type':'application/json'}}).catch(function(){});
+  localStorage.setItem('mom_nl_sub','1');
+  if(msg)msg.textContent='🎉 You\'re in! Weekly mom wins incoming.';
+  document.getElementById('mom-nl-email').value='';
+};
+window.shareMomOnX=function(){
+  window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent('Just found the best mom resource at spunk.mom — Amazon deals, side hustles & money tips for moms! 👩‍👧 via @SpunkArt13'),'_blank');
+};
 (function(){
   if(window._vtrInit)return;window._vtrInit=true;
   var DB='https://predict-network-ec767-default-rtdb.firebaseio.com';
