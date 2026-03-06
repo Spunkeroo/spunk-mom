@@ -443,5 +443,6 @@ function closeTip(){document.getElementById('tipModal').classList.remove('open')
 function copyBTC(){var a=document.getElementById('btcAddr').textContent.trim();navigator.clipboard.writeText(a).catch(function(){});document.getElementById('btcAddr').textContent='✓ Copied!';setTimeout(function(){document.getElementById('btcAddr').textContent=a;},2000);}
 document.getElementById('tipModal').addEventListener('click',function(e){if(e.target===this)closeTip();});
 </script>
+<script src="https://spunk.codes/spunk-ads.js" defer></script>
 </body>
 </html>
